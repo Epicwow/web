@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
+    <title>龙泉寺皈依自主表单填写</title>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/js/bootstrap.min.js" rel="script">
+    <link href="/static/jquery/jquery-2.1.4.js" rel="script">
+</head>
+
+<body>
+
+<div style="padding: 20px 20px 10px;" class="page-header">
+    <h1>皈依信息填写表单</h1>
+</div>
+
+<div class="alert alert-danger">
+    阿弥陀佛，师兄您好，请看完这段话再开始录入信息， 姓名和手机号应和交费时提供的一致才可以录入进系
+    统，请尽量提供详细信息，您所提供的信息我们会安全对待，所有信息都是为了更好的了解师兄们的学修情况，
+    感恩随喜您的皈依。如果有任何问题，请举手联系我们的义工。再次感恩您。
+</div>
+
+<div style="padding: 20px 20px 20px;">
+    <form action="/zened/" method="get" role="form">
+        <h2>1. 基本信息</h2>
+        <div class="input-group">
+            <span class="input-group-addon">* 姓名</span>
+            <input type="text" name="name" class="form-control" placeholder="如: 张三">
+        </div><br>
+
+        <div class="input-group">
+            <span class="input-group-addon">* 手机</span>
+            <input type="text" name="phone_num" class="form-control" placeholder="">
+        </div><br>
+
+        * 性别：
+        <input type="radio" name="gender" value="男" checked/>
+        男 &nbsp;
+        <input type="radio" name="gender" value="女"/>
+        女
+        <br><br>
+
+        <div class="input-group">
+            <span class="input-group-addon">固话</span>
+            <input type="text" name="telephone_num" class="form-control" placeholder="如：区号-电话号">
+        </div><br>
+
+
+        <div class="input-group">
+            <span class="input-group-addon">*民族</span>
+            <input type="text" name="race" class="form-control" value="汉族">
+        </div><br>
+        <div class="input-group">
+            <span class="input-group-addon">职业</span>
+            <input type="text" name="job" class="form-control" placeholder="如：工程师">
+        </div><br>
+        <div class="input-group">
+            <span class="input-group-addon">爱好</span>
+            <input type="text" name="hobby" class="form-control" placeholder="如：国画">
+        </div><br>
+
+
+        <div class="input-group">
+            <span class="input-group-addon">*出生年月 格式如：1987-01-01 请按格式输入</span>
+            <input type="date" name="birthday" class="form-control" placeholder="如: 1987-01-01">
+        </div><br>
+
+        @健康状况
+        <div class="input-group">
+            <input type="radio" name="health" value="良好" checked>良好&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="health" value="一般">一般&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="health" value="欠佳">欠佳&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="health" value="重病">重病<br>
+        </div><br>
+
+        * 现居地址，请按省市区县依次填写
+        <div class="input-group">
+            <span class="input-group-addon">(省)</span>
+            <input type="text" name="province" class="form-control" placeholder="如：北京市" value="北京市">
+        </div><br>
+        <div class="input-group">
+            <span class="input-group-addon">(市)</span>
+            <input type="text" name="city" class="form-control" placeholder="如：北京市" value="北京市">
+        </div><br>
+        <div class="input-group">
+            <span class="input-group-addon">(区/县)</span>
+            <input type="text" name="district" class="form-control" placeholder="如：海淀区">
+        </div><br>
+        <div class="input-group">
+            <span class="input-group-addon">(乡镇/小区/街道)</span>
+            <input type="text" name="address" class="form-control" placeholder="如：凤凰岭">
+        </div><br>
+         <div class="input-group">
+            <span class="input-group-addon">邮政编码</span>
+            <input type="text" name="postcode" class="form-control" placeholder="如：100000">
+        </div>
+
+
+        <h2>2. 毕业学校</h2>
+        <div class="input-group">
+            <span class="input-group-addon">年</span>
+            <input type="year" name="graduate_time" class="form-control" placeholder="如：2015">
+            <span class="input-group-addon">学校</span>
+            <input type="text" name="graduate_school" class="form-control" placeholder="如：北京大学">
+        </div><br>
+        <div class="input-group">
+        <span class="input-group-addon">学历</span>
+            <input type="text" name="degree" class="form-control" placeholder="如：大学本科、大学专科">
+        </div>
+        <h2>3. 工作信息</h2>
+        现在的工作单位信息:
+        <div class="input-group">
+            <span class="input-group-addon">单位</span>
+            <input type="text" name="workplace" class="form-control" placeholder="如：某公司.">
+        </div><br>
+        曾经的工作单位信息:
+        <div class="input-group">
+            <span class="input-group-addon">年</span>
+            <input type="year" name="first_job_entry_time" class="form-control" placeholder="如：2015">
+            <span class="input-group-addon">单位</span>
+            <input type="text" name="first_job_workplace" class="form-control" placeholder="如：A 公司">
+        </div><br>
+        <div class="input-group">
+            <span class="input-group-addon">年</span>
+            <input type="year" name="second_job_entry_time" class="form-control" placeholder="如：2014">
+            <span class="input-group-addon">单位</span>
+            <input type="text" name="second_job_workplace" class="form-control" placeholder="如：B 公司">
+        </div><br>
+        退休时间、单位:
+        <div class="input-group">
+            <span class="input-group-addon">年</span>
+            <input type="year" name="retirement_date" class="form-control" placeholder="如：2014">
+            <span class="input-group-addon">单位</span>
+            <input type="text" name="retirement_workplace" class="form-control" placeholder="如：C 公司">
+        </div>
+
+        <br><br>
+        <h2>4.学佛信息</h2>
+        <div class="input-group">
+            <span class="input-group-addon">学佛始年</span>
+            <input type="year" name="year2start_learning_buddhism" class="form-control" placeholder="如：2014">
+        </div><br>
+        * 学佛因缘：<br>
+        <input type="radio" name="reason2learning_dharma" value="由法师（居士）引导学佛" checked>
+        由法师（居士）引导学佛<br>
+        <input type="radio" name="reason2learning_dharma" value="由经历启发学佛">
+        由经历启发学佛<br>
+        <input type="radio" name="reason2learning_dharma" value="由读佛教经典感悟学佛">
+        由读佛教经典感悟学佛<br><br>
+
+        * 是否深刻了解佛法：<br>
+        <input type="radio" name="deep_understanding_of_dharma" value="比较深刻" checked>
+        比较深刻<br>
+        <input type="radio" name="deep_understanding_of_dharma" value="不深刻">
+        不深刻<br>
+        <input type="radio" name="deep_understanding_of_dharma" value="完全不了解">
+        完全不了解<br><br>
+        <div class="input-group">
+            <span class="input-group-addon">读过多少部经典</span>
+            <input type="text" name="nums_of_buddhism_book" class="form-control" placeholder="如：3">
+        </div><br>
+
+        <div class="input-group">
+            <span class="input-group-addon">容易学经典</span>
+            <input type="text" name="easy2learn_buddhism_book" class="form-control">
+        </div><br>
+
+        <div class="input-group">
+            <span class="input-group-addon">较难学经典</span>
+            <input type="text" name="hard2read" class="form-control">
+        </div><br>
+
+        <div class="input-group">
+            <span class="input-group-addon">家庭成员三宝弟子</span>
+            <input type="text" name="buddhist_disciples_of_family" class="form-control" placeholder="如：父亲、母亲">
+        </div><br>
+
+        <div class="input-group">
+            <span class="input-group-addon">感悟最深的一句话</span>
+            <input type="text" name="maxim" class="form-control" placeholder="如：凡所有相皆是虚妄">
+        </div><br>
+
+        <center>
+            <div class="alert alert-danger">请您检查无误后提交，感恩</div>
+        </center>
+        <br><br>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">提交</button>
+
+    </form>
+</div>
+</body>
+</html>

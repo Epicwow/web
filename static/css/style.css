@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+body {
+	font-size: 14px;
+	color: #000;
+	line-height: 2;
+	background-color: #fff;
+	font-family: Arialm,helvetica,"Microsoft Yahei",sans-serif;
+}
+
+#header-div .navbar{
+	background-color: #0198ab;
+	border-color: #0198ab;
+}
+
+#header-div .navbar-brand{
+	color : #fff;
+}
+
+#header-div .navbar-default .navbar-nav > li > a{
+	color : #fff;
+}
+
+#header-div .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+	background-color: #22a7ab;
+}
+
+#content-div{
+	margin-top: 70px;	
+}
+
+/**
+#content-div .btn-group .active{
+	background-color: #41a7c5;
+	color: #fff;
+}**/
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+	background-color: #fff;
+}
+
+.input-group-addon{
+	background-color: #fff;
+}

@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" charset=UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>信息录入系统</title>
+    <link rel="stylesheet" type="text/css"
+          href="/static/js/bootstrap-3.3.2-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <!--<link rel="stylesheet" type="text/css"-->
+          <!--href="/static/js/bootstrap-daterangepicker-master/daterangepicker-bs3.css"/>-->
+    <link rel="stylesheet" type="text/css"
+          href="/static/js/font-awesome-4.2.0/css/font-awesome.min.css"/>
+    <script type="text/javascript" src="/static/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.json-2.2-min.js"></script>
+    <script type="text/javascript"
+            src="/static/js/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <!--<script type="text/javascript" src="/static/js/jquery.dateFormat.js"></script>-->
+    <!--<script type="text/javascript"-->
+            <!--src="/static/js/bootstrap-daterangepicker-master/moment.js"></script>-->
+    <!--<script type="text/javascript"-->
+            <!--src="/static/js/bootstrap-daterangepicker-master/daterangepicker.js"></script>-->
+    <script type="text/javascript" src="/static/js/main.js"></script>
+
+</head>
+<body>
+<!-- header -->
+<div id="header-div">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">信息录入系统</a>
+            </div>
+            <div class="collapse navbar-collapse"
+                 id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#baseinfo-div">基本信息</a></li>
+                    <li><a href="#educa-div">教育信息</a></li>
+                    <li><a href="#occu-div">工作信息</a></li>
+                    <li><a href="#xuefoinfo-div">学佛信息</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">您好，欢迎您</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+</div>
+
+<!-- header/end -->
+
+<!-- content -->
+<div class="container" id="content-div">
+    <div class="alert alert-danger">
+        阿弥陀佛，师兄您好，请看完这段话再开始录入信息， 姓名和手机号应和交费时提供的一致才可以录入进系
+        统，请尽量提供详细信息，您所提供的信息我们会安全对待，所有信息都是为了更好的了解师兄们的学修情况，
+        感恩随喜您的皈依。如果有任何问题，请举手联系我们的义工。再次感恩您。
+    </div>
+    <div class="alert alert-danger">红色项目为必填项</div>
+    <form action="/zened/" method="get" role="form" onsubmit="return checkInfo()">
+        <div class="row" id="baseinfo-div">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">基本信息</div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="name" class="col-sm-2 control-label" style="color:red">姓名</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" class="form-control" id="name" name="name"
+                                               placeholder="姓名，必填，如张三">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobile" class="col-sm-2 control-label" style="color:red">手机</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" class="form-control" id="mobile" name="phone_num"
+                                               placeholder="手机，必填" onkeyup="value=value.replace(/[^\d]/g,'')">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="sex" class="col-sm-2 control-label" style="color:red">性别</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <select class="form-control" id="sex" name="gender">
+                                            <option value="">请选择性别</option>
+                                            <option value="男">男</option>
+                                            <option value="女">女</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telphone" class="col-sm-2 control-label">固定电话</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" class="form-control" id="telphone" name="telephone_num"
+                                               placeholder="区号-电话号">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mz" class="col-sm-2 control-label" style="color:red">民族</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" class="form-control" id="mz" name="race"
+                                               placeholder="民族，必填，如汉族">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="occu" class="col-sm-2 control-label">职业</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" class="form-control" id="occu" name="job"
+                                               placeholder="职业，如工程师">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="likes" class="col-sm-2 control-label">爱好</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" class="form-control" id="likes" name="hobby"
+                                               placeholder="爱好，如画画">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="datepicker" class="col-sm-2 control-label"
+                                           style="color:red">出生日期</label>
+
+                                    <div class="col-sm-9 form-right">
+										<span class="input-group" style="max-width: 300px;">
+                                            <!--<input-->
+                                                <!--id="datepicker" name="birthday" type="text" class="form-control"-->
+                                                <!--readonly="readonly" value="2015-12-01" style="cursor: pointer;"-->
+                                                <!--name="set_start_time">-->
+                                            <input
+                                                    id="datepicker" name="birthday" type="text" class="form-control"
+                                                    style="cursor: pointer;"
+                                                    name="set_start_time" placeholder="如20150101">
+                                            <!--<span class="input-group-addon"> <i class="fa fa-calendar"></i></span>-->
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="health" class="col-sm-2 control-label">健康状况</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <select class="form-control" id="health" name="health">
+                                            <option value="">请选择健康状况</option>
+                                            <option value="良好">良好</option>
+                                            <option value="一般">一般</option>
+                                            <option value="欠佳">欠佳</option>
+                                            <option value="重病">重病</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addr" class="col-sm-2 control-label" style="color:red">现居住地址</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <select class="form-control" id="province" name="province">
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <select class="form-control" id="city" name="city">
+                                                    <option>请选择市</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <select class="form-control" id="area" name="district">
+                                                    <option>请选择(区/县)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="detailaddr" class="col-sm-2 control-label"
+                                           style="color:red">详细地址</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" class="form-control" id="detailaddr" name="address"
+                                               placeholder="详细地址，必填，如乡镇/小区/街道">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="yzbm" class="col-sm-2 control-label">邮政编码</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" class="form-control" id="yzbm" name="postcode"
+                                               placeholder="邮政编码,如10001">
+                                    </div>
+                                </div>
+                                <!--<div class="form-group">-->
+                                <!--<div class="col-sm-offset-2 col-sm-10">-->
+                                <!--<a class="btn btn-default" style="width: 100px;"-->
+                                <!--onclick="saveBaseInfo();">提交</a>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="educa-div">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">教育信息(最高学历)</div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="graduate_time" class="col-sm-2 control-label">毕业时间</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" class="form-control" id="graduate_time" name="graduate_time"
+                                               placeholder="如2000">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="graduate_school" class="col-sm-2 control-label">学校</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" class="form-control" id="graduate_school"
+                                               name="graduate_school"
+                                               placeholder="学校，如北京大学">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="degree" class="col-sm-2 control-label" style="color:red">文化程度</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <select class="form-control" id="degree" name="degree">
+                                            <option value="">请选择文化程度</option>
+                                            <option value="博士">博士</option>
+                                            <option value="硕士">硕士</option>
+                                            <option value="本科">本科</option>
+                                            <option value="专科">专科</option>
+                                            <option value="高中">高中</option>
+                                            <option value="初中">初中</option>
+                                            <option value="小学">小学</option>
+                                            <option value="其他">其他</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!--<div class="form-group">-->
+                                <!--<div class="col-sm-offset-2 col-sm-10">-->
+                                <!--<a class="btn btn-default" style="width: 100px;"-->
+                                <!--onclick="saveEduca();">提交</a>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="occu-div">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">工作信息</div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="company" class="col-sm-2 control-label">现工作单位</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" class="form-control" id="company" name="workplace"
+                                               placeholder="现工作单位，如某公司">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="o_company" class="col-sm-2 control-label">曾经工作单位</label>
+
+                                    <div class="col-sm-9 form-right" style="line-height: 2px;">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">年</div>
+                                            <input type="text" class="form-control" id="first_job_entry_time"
+                                                   name="first_job_entry_time" placeholder="如2000">
+
+                                            <div class="input-group-addon">单位</div>
+                                            <input type="text" class="form-control" id="first_job_workplace"
+                                                   name="first_job_workplace" placeholder="单位">
+                                        </div>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">年</div>
+                                            <input type="text" class="form-control" id="second_job_entry_time"
+                                                   name="second_job_entry_time" placeholder="如2000">
+
+                                            <div class="input-group-addon">单位</div>
+                                            <input type="text" class="form-control" id="second_job_workplace"
+                                                   name="second_job_workplace" placeholder="单位">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="o_company" class="col-sm-2 control-label">退休时间单位</label>
+
+                                    <div class="col-sm-9 form-right" style="line-height: 2px;">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">年</div>
+                                            <input type="text" class="form-control" id="o_time" name="retirement_date"
+                                                   placeholder="如2000">
+
+                                            <div class="input-group-addon">单位</div>
+                                            <input type="text" class="form-control" id="o_company"
+                                                   name="retirement_workplace" placeholder="单位">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="form-group">-->
+                            <!--<div class="col-sm-offset-2 col-sm-10">-->
+                            <!--<a class="btn btn-default" style="width: 100px;"-->
+                            <!--onclick="saveOccu();">提交</a>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="xuefoinfo-div">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">学佛信息</div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="company" class="col-sm-2 control-label">学佛始年</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="year" name="year2start_learning_buddhism" class="form-control"
+                                               placeholder="如2014">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company" class="col-sm-2 control-label" style="color:red">学佛因缘</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <select class="form-control" id="reason2learning_dharma">
+                                            <option value="">请选择学佛因缘</option>
+                                            <option value="由法师（居士）引导学佛">由法师（居士）引导学佛</option>
+                                            <option value="由经历启发学佛">由经历启发学佛</option>
+                                            <option value="由读佛教经典感悟学佛">由读佛教经典感悟学佛</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company" class="col-sm-2 control-label"
+                                           style="color:red">对佛法了解程度</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <select class="form-control" id="deep_understanding_of_dharma">
+                                            <option value="">请选择对佛法了解程度</option>
+                                            <option value="比较深刻">比较深刻</option>
+                                            <option value="不深刻">不深刻</option>
+                                            <option value="完全不了解">完全不了解</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company" class="col-sm-2 control-label">读过多少部经典</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" name="nums_of_buddhism_book" id="nums_of_buddhism_book"
+                                               class="form-control"
+                                               placeholder="如：3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company" class="col-sm-2 control-label">容易学经典</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" name="easy2learn_buddhism_book" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company" class="col-sm-2 control-label">较难学经典</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" name="hard2read" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company" class="col-sm-2 control-label">家庭成员三宝弟子</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" name="buddhist_disciples_of_family" class="form-control"
+                                               placeholder="如：父亲、母亲">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company" class="col-sm-2 control-label">感悟最深的一句话</label>
+
+                                    <div class="col-sm-9 form-right">
+                                        <input type="text" name="maxim" class="form-control" placeholder="如：凡所有相皆是虚妄">
+                                    </div>
+                                </div>
+
+
+                                <center>
+                                    <div class="alert alert-danger">请您检查无误后提交，感恩</div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="submit" id="submit" class="btn btn-primary btn-lg btn-block" value="提交"/>
+
+    </form>
+</div>
+<!-- content end -->
+<!--datepicker插件-->
+<!--<link rel="stylesheet" type="text/css"-->
+      <!--href="/static/js/bootstrap-datepicker-master/bootstrap-datepicker.min.css"/>-->
+<!--<script type="text/javascript" src="/static/js/bootstrap-datepicker-master/bootstrap-datepicker.min.js"></script>-->
+<!--<script type="text/javascript" src="/static/js/bootstrap-datepicker-master/bootstrap-datepicker.zh-CN.min.js"></script>-->
+</body>
+</html>
