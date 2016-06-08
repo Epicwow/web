@@ -29,6 +29,7 @@ def xiaozued(request):
 
 
 def main(request):
+    logger.info(request.META.get('REMOTE_ADDR'))
     return render(request, 'main.html')
 def zen(request):
     return render(request, 'zen.html')
@@ -57,6 +58,8 @@ def zened(request):
         obj = Female
         table = "zen_female"
 
+    dic['notes'] = request.META.get('REMOTE_ADDR')
+    logger.info(dic['notes'])
     ret = obj.objects.filter(name=dic['name'], phone_num=dic['phone_num'])
     if not ret:
         logger.info("{0} 没有交费或者手机号、姓名和交费时填写不一致，请联系管理人员".format(dic['name'].encode('utf8')))
@@ -66,5 +69,7 @@ def zened(request):
     if not rt:
         logger.error("{0} 错误".format(dic['name'].encode('utf8')))
         return HttpResponse("error")
+
+    logger.info(dic)
 
     return render(request, 'bye.html')

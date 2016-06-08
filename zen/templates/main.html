@@ -57,7 +57,7 @@
         统，请尽量提供详细信息，您所提供的信息我们会安全对待，所有信息都是为了更好的了解师兄们的学修情况，
         感恩随喜您的皈依。如果有任何问题，请举手联系我们的义工。再次感恩您。
     </div>
-    <div class="alert alert-danger">红色项目为必填项</div>
+    <div class="alert alert-danger">红色项目为必填项, 数字请使用阿拉伯数字</div>
     <form action="/zened/" method="get" role="form" onsubmit="return checkInfo()">
         <div class="row" id="baseinfo-div">
             <div class="col-xs-12">
@@ -128,7 +128,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="datepicker" class="col-sm-2 control-label"
-                                           style="color:red">出生日期</label>
+                                           style="color:red">出生日期（格式：19870101）</label>
 
                                     <div class="col-sm-9 form-right">
 										<span class="input-group" style="max-width: 300px;">
@@ -335,7 +335,7 @@
                         <div class="container-fluid">
                             <div class="form-horizontal">
                                 <div class="form-group">
-                                    <label for="company" class="col-sm-2 control-label">学佛始年</label>
+                                    <label for="company" class="col-sm-2 control-label">学佛始年(请用4位阿拉伯数字)</label>
 
                                     <div class="col-sm-9 form-right">
                                         <input type="year" name="year2start_learning_buddhism" class="form-control"
@@ -346,7 +346,7 @@
                                     <label for="company" class="col-sm-2 control-label" style="color:red">学佛因缘</label>
 
                                     <div class="col-sm-9 form-right">
-                                        <select class="form-control" id="reason2learning_dharma">
+                                        <select class="form-control" id="reason2learning_dharma" name="reason2learning_dharma">
                                             <option value="">请选择学佛因缘</option>
                                             <option value="由法师（居士）引导学佛">由法师（居士）引导学佛</option>
                                             <option value="由经历启发学佛">由经历启发学佛</option>
@@ -359,7 +359,7 @@
                                            style="color:red">对佛法了解程度</label>
 
                                     <div class="col-sm-9 form-right">
-                                        <select class="form-control" id="deep_understanding_of_dharma">
+                                        <select class="form-control" id="deep_understanding_of_dharma" name="deep_understanding_of_dharma">
                                             <option value="">请选择对佛法了解程度</option>
                                             <option value="比较深刻">比较深刻</option>
                                             <option value="不深刻">不深刻</option>
